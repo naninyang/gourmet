@@ -1,6 +1,6 @@
-import styles from '@/styles/Header.module.sass';
 import Anchor from './Anchor';
 import { Logo } from './Svgs';
+import styles from '@/styles/Header.module.sass';
 
 export default function Header() {
   return (

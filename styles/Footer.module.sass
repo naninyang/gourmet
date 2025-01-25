@@ -1,1 +1,47 @@
 footer.footer
+  background-color: design.$hex-dark
+
+  .container
+    display: flex
+    flex-direction: column
+    gap: design.rem(23)
+    padding-top: design.rem(52)
+    padding-bottom: design.rem(52)
+
+  ul
+    display: flex
+    gap: design.rem(12)
+
+    li
+      display: inline-flex
+      gap: design.rem(12)
+      align-items: center
+
+      &::before
+        content: ''
+        display: inline-block
+        background-color: design.$hex-light
+        border-radius: 100%
+        width: design.rem(4)
+        height: design.rem(4)
+
+      &:first-of-type::before
+        display: none
+
+      a
+        font-size: design.rem(14)
+        letter-spacing: -.05em
+        color: design.$hex-light
+
+  p
+    display: flex
+    gap: design.rem(5)
+    font-size: design.rem(12)
+    color: #777
+
+    svg
+      width: design.rem(105)
+      height: design.rem(14)
+
+    strong
+      @include design.screen-reader-only
