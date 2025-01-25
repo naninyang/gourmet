@@ -96,6 +96,13 @@ a, button, select, input
 
 main
   background-color: design.$hex-bg
+  display: flex
+  flex-grow: 1
 
   .container
     padding: design.rem(52) 0 design.rem(72)
+
+#__next > div
+  display: flex
+  flex-direction: column
+  min-height: 100vh
