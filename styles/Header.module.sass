@@ -5,3 +5,7 @@ header.header
   .container
     padding-top: design.rem(23)
     padding-bottom: design.rem(23)
+
+    svg
+      & + span
+        @include design.screen-reader-only

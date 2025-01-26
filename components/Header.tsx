@@ -8,6 +8,7 @@ export default function Header() {
       <div className={`container ${styles.container}`}>
         <Anchor href="/">
           <Logo />
+          <span>고메 토너먼트</span>
         </Anchor>
       </div>
     </header>
