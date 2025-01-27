@@ -1,1 +1,67 @@
 .main
+  .container
+    padding-right: 0
+    padding-left: 0
+
+    .list
+      ul
+        display: flex
+        flex-wrap: wrap
+
+        li
+          width: 33.33%
+          padding: design.rem(12)
+
+          a
+            display: flex
+            flex-direction: column
+            background-color: design.$hex-white
+            border-radius: design.rem(7)
+            box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.06)
+            overflow: hidden
+
+            &:focus, &:hover
+              .summary
+                strong
+                  text-decoration: underline
+
+            .thumbnail
+              width: 100%
+
+              img
+                display: block
+                aspect-ratio: 1920 / 1080
+                width: 100%
+                height: auto
+
+            .summary
+              display: flex
+              flex-direction: column
+              gap: design.rem(7)
+              padding: design.rem(12) design.rem(23) design.rem(23)
+              letter-spacing: -.02em
+              line-height: 1.25
+
+              strong
+                display: inline-block
+                height: design.rem(40)
+                font-size: design.rem(16)
+                @include design.fw(happiness, 900)
+                color: design.$hex-dark
+
+              dl
+                display: flex
+                justify-content: space-between
+
+                dt
+                  @include design.screen-reader-only
+
+                dd
+                  font-size: design.rem(14)
+
+                .title
+                  @include design.fw(square, 700)
+                  color: design.$hex-accent
+
+                .count
+                  color: design.$hex-sv
