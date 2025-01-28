@@ -49,10 +49,12 @@
 
               strong
                 display: inline-block
-                height: design.rem(40)
                 font-size: design.rem(16)
                 @include design.fw(happiness, 900)
                 color: design.$hex-dark
+
+                @include design.mq(minSmall)
+                  height: design.rem(40)
 
               dl
                 display: flex
@@ -68,8 +70,12 @@
                 .title
                   @include design.fw(square, 700)
                   color: design.$hex-accent
-                  @include design.ellipsis
+
+                  @include design.mq(minSmall)
+                    @include design.ellipsis
 
                 .count
                   color: design.$hex-sv
-                  white-space: nowrap
+
+                  @include design.mq(minSmall)
+                    white-space: nowrap
