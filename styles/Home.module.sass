@@ -9,8 +9,13 @@
         flex-wrap: wrap
 
         li
-          width: 33.33%
           padding: design.rem(12)
+
+          @include design.mq(minSmall)
+            width: 50%
+
+          @include design.mq(minMedium)
+            width: 33.33%
 
           a
             display: flex
@@ -52,6 +57,7 @@
               dl
                 display: flex
                 justify-content: space-between
+                gap: design.rem(12)
 
                 dt
                   @include design.screen-reader-only
@@ -62,6 +68,8 @@
                 .title
                   @include design.fw(square, 700)
                   color: design.$hex-accent
+                  @include design.ellipsis
 
                 .count
                   color: design.$hex-sv
+                  white-space: nowrap

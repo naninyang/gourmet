@@ -30,14 +30,10 @@ export default function Home({
                     <div className={styles.summary}>
                       <strong>{ingredient.tournament_title}</strong>
                       <dl>
-                        <div className={styles.title}>
-                          <dt>애니 제목</dt>
-                          <dd>{ingredient.animation_title}</dd>
-                        </div>
-                        <div className={styles.count}>
-                          <dt>음식 개수</dt>
-                          <dd>{ingredient.info.length}개 음식</dd>
-                        </div>
+                        <dt>애니 제목</dt>
+                        <dd className={styles.title}>{ingredient.animation_title}</dd>
+                        <dt>음식 개수</dt>
+                        <dd className={styles.count}>{ingredient.info.length}개 음식</dd>
                       </dl>
                     </div>
                   </Link>
