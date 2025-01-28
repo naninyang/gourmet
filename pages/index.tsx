@@ -1,17 +1,17 @@
-import { IngredientData } from '@/types';
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { IngredientData } from '@/types';
 import styles from '@/styles/Home.module.sass';
 
 export default function Home({
   data,
   error,
-  currentPage,
+  // currentPage,
 }: {
   data: IngredientData[];
   error: string;
-  currentPage: number;
+  // currentPage: number;
 }) {
   return (
     <main className={styles.main}>
