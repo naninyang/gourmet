@@ -1,0 +1,65 @@
+.round
+  display: flex
+  flex-direction: column
+  flex-grow: 1
+  justify-content: center
+  align-items: center
+
+  .loading
+    @include design.fw(square, 700)
+    color: design.$hex-accent
+
+  .content
+    display: flex
+    flex-direction: column
+    gap: design.rem(72)
+    width: 100%
+    padding-right: design.rem(12)
+    padding-left: design.rem(12)
+
+    header
+      h1
+        @include design.fw(happiness, 900)
+        font-size: design.rem(36)
+        text-align: center
+
+    form
+      fieldset
+        display: flex
+        flex-direction: column
+        justify-content: center
+        gap: design.rem(23)
+
+        .group
+          @include design.row
+          align-items: center
+          gap: design.rem(23)
+
+          label, .select
+            @include design.col
+
+          label, .select select
+            font-size: design.rem(23)
+            font-weight: 500
+
+          label
+            text-align: right
+            @include design.fw(square, 700)
+
+          select
+            padding-right: design.rem(23)
+            padding-left: design.rem(23)
+
+      .submit
+        display: flex
+        justify-content: center
+
+        button
+          display: inline-block
+          background-color: design.$hex-white
+          border: design.rem(2) solid design.$hex-accent
+          border-radius: design.rem(80)
+          padding: design.rem(23) design.rem(37)
+          @include design.fw(square, 700)
+          font-size: design.rem(27)
+          color: design.$hex-accent

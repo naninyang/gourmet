@@ -23,7 +23,7 @@ export default function Home({
             <ul>
               {data.map((ingredient) => (
                 <li key={ingredient.documentId}>
-                  <Link href={`/ingredient/${ingredient.documentId}`} scroll={false} shallow={true}>
+                  <Link href={`/ingredient/${ingredient.documentId}/round`} scroll={false} shallow={true}>
                     <div className={styles.thumbnail}>
                       <Image src={ingredient.thumbnail_url} width={344} height={193} alt="" unoptimized priority />
                     </div>
