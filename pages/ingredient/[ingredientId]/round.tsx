@@ -31,6 +31,9 @@ export default function Round({ ingredient }: { ingredient: IngredientData }) {
         <div className={`container ${styles.content}`}>
           <header>
             <h1>{ingredient.tournament_title}</h1>
+            <h2>
+              <strong>{ingredient.animation_title}</strong> {ingredient.info.length}개 음식
+            </h2>
           </header>
           <form
             onSubmit={(e) => {
