@@ -44,15 +44,16 @@
       fieldset
         display: flex
         justify-content: center
-        gap: design.rem(27)
+        gap: design.rem(32)
         background-color: design.$hex-white
         box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(0,0,0,0.3), 0 -6px 16px -6px rgba(0,0,0,0.025)
+        border-radius: design.rem(3)
         padding: design.rem(16) design.rem(38)
 
         .group
           @include design.row
           align-items: center
-          gap: design.rem(12)
+          gap: design.rem(7)
 
           label, .select
             @include design.col
