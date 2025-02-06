@@ -1,4 +1,4 @@
-interface InfoItem {
+export interface InfoItem {
   id: number;
   name: string;
   thumbnail: string;

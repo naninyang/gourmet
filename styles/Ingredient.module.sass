@@ -91,3 +91,112 @@
 
           &:hover, &:focus
             opacity: 1
+
+.main
+  flex-direction: column
+
+  header
+    padding: design.rem(12)
+    text-align: center
+
+    h1
+      margin-bottom: design.rem(12)
+      @include design.fw(happiness, 900)
+      font-size: design.rem(28)
+
+    h2
+      @include design.fw(square, 800)
+      font-size: design.rem(16)
+      color: design.$hex-sv
+
+      strong
+        padding-right: design.rem(12)
+        color: design.$hex-accent
+
+        &::after
+          content: '-'
+          padding-left: design.rem(12)
+          font-size: design.rem(13)
+          color: design.$hex-sv
+
+      em
+        padding-left: design.rem(12)
+        font-style: normal
+
+  .content
+    display: flex
+    flex-grow: 1
+    background-color: design.$hex-black
+
+  .match
+    display: flex
+    position: relative
+
+    .vs
+      position: absolute
+      top: 0
+      left: 50%
+      z-index: 1
+      transform: translateX(-50%)
+      width: auto
+      height: 100%
+      aspect-ratio: 532 / 770
+
+      img
+        width: 100%
+        height: 100%
+        display: block
+        filter: invert(53%) sepia(100%) saturate(5000%) hue-rotate(-17deg) brightness(87%)
+
+    button
+      display: block
+      @include design.col
+      background-color: transparent
+      position: relative
+      overflow: hidden
+      width: 50%
+      height: auto
+      aspect-ratio: 1920 / 1080
+
+      img
+        display: block
+        width: 100%
+        height: auto
+
+      em
+        position: absolute
+        bottom: design.rem(32)
+        left: 50%
+        transform: translateX(-50%)
+        background-color: design.$hex-black
+        border-radius: design.rem(3)
+        padding: design.rem(12) design.rem(23)
+        color: design.$hex-accent
+        font-style: normal
+        font-size: design.rem(27)
+        font-weight: 700
+        line-height: 1
+
+  .winner
+    position: relative
+    display: block
+
+    img
+      display: block
+      width: 100%
+      height: auto
+      aspect-ratio: 1920 / 1080
+
+    em
+      position: absolute
+      top: design.rem(32)
+      left: 50%
+      transform: translateX(-50%)
+      background-color: design.$hex-black
+      border-radius: design.rem(3)
+      padding: design.rem(12) design.rem(23)
+      color: design.$hex-accent
+      font-style: normal
+      font-size: design.rem(27)
+      font-weight: 700
+      line-height: 1

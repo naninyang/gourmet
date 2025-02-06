@@ -18,7 +18,7 @@ export default function Round({ ingredient }: { ingredient: IngredientData }) {
   const [selectedRound, setSelectedRound] = useState(availableRounds[0]);
 
   const handleSubmit = () => {
-    router.push(`/${ingredient.documentId}/?r=${selectedRound}`);
+    router.push(`/ingredient/${ingredient.documentId}/?r=${selectedRound}`);
   };
 
   return (
