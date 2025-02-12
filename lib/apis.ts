@@ -1,3 +1,5 @@
+import { Client as NotionClient } from '@notionhq/client';
+import { NotionAPI } from 'notion-client';
 import { IngredientData } from '@/types';
 
 const headersInterface = () => ({
@@ -48,4 +50,24 @@ export async function getIngredient(documentId: string) {
   };
 
   return ingredient;
+}
+
+export const notionClient = new NotionClient({ auth: process.env.COUNT_API_KEY });
+export const notionAPI = new NotionAPI();
+export const databaseId = process.env.COUNT_API_ID;
+
+export async function fetchCount() {
+  if (!databaseId) {
+    throw new Error('COUNT_API_ID 환경 변수가 설정되어 있지 않습니다.');
+  }
+
+  const response = await notionClient.databases.query({
+    database_id: databaseId,
+  });
+  return response.results;
+}
+
+export async function fetchCountPage(pageId: string) {
+  const pageData = await notionAPI.getPage(pageId);
+  return pageData;
 }

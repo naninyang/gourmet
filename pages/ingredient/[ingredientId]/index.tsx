@@ -19,6 +19,7 @@ export default function IngredientPage({ ingredient, ingredientId }: Props) {
   const [currentRound, setCurrentRound] = useState(1);
   const [totalRounds, setTotalRounds] = useState(0);
   const [pairIndex, setPairIndex] = useState(0);
+  const [updatedCount, setUpdatedCount] = useState(false);
 
   useEffect(() => {
     if (!r || isNaN(roundSize) || roundSize < 8 || roundSize > (ingredient?.info.length || 0)) {
@@ -33,9 +34,28 @@ export default function IngredientPage({ ingredient, ingredientId }: Props) {
     }
   }, [r, ingredient]);
 
-  if (!ingredient || selectedInfo.length === 0) return null;
-
   const isFinal = selectedInfo.length === 1;
+
+  useEffect(() => {
+    if (isFinal && !updatedCount) {
+      fetch('/api/counting', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ingredientId,
+          winnerId: selectedInfo[0].id,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log('Count update result:', data);
+          setUpdatedCount(true);
+        })
+        .catch((err) => console.error('Error updating count:', err));
+    }
+  }, [isFinal, updatedCount, ingredientId, selectedInfo]);
+
+  if (!ingredient || selectedInfo.length === 0) return null;
 
   const handleSelection = (choice: InfoItem) => {
     const nextRoundInfo = selectedInfo.slice(2).concat(choice);
@@ -102,8 +122,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
   let ingredient = null;
 
   if (ingredientId && typeof ingredientId === 'string') {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/ingredients?documentId=${ingredientId}`);
-    ingredient = (await response.json()) as { data: IngredientData[] };
+    const responseIngredient = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/ingredients?documentId=${ingredientId}`,
+    );
+    ingredient = (await responseIngredient.json()) as { data: IngredientData[] };
   }
 
   return {
