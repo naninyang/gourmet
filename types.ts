@@ -1,4 +1,5 @@
 export interface InfoItem {
+  documentId: string;
   id: number;
   name: string;
   thumbnail: string;
