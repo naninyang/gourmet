@@ -100,11 +100,11 @@
     text-align: center
 
     h1
-      margin-bottom: design.rem(12)
       @include design.fw(happiness, 900)
       font-size: design.rem(28)
 
     h2
+      margin: design.rem(12) 0 design.rem(27)
       @include design.fw(square, 800)
       font-size: design.rem(16)
       color: design.$hex-sv
@@ -122,6 +122,25 @@
       em
         padding-left: design.rem(12)
         font-style: normal
+
+    .util
+      display: flex
+      justify-content: center
+      gap: design.rem(27)
+
+      a
+        display: inline-flex
+        align-items: center
+        gap: design.rem(5)
+        border: 1px solid design.$hex-sv
+        border-radius: design.rem(3)
+        padding: design.rem(3) design.rem(7)
+        font-size: design.rem(16)
+        color: design.$hex-dark
+
+        svg
+          width: design.rem(14)
+          height: design.rem(14)
 
   .content
     display: flex
@@ -218,11 +237,11 @@
     text-align: center
 
     h1
-      margin-bottom: design.rem(12)
       @include design.fw(happiness, 900)
       font-size: design.rem(28)
 
     h2
+      margin: design.rem(12) 0 design.rem(27)
       @include design.fw(square, 500)
       font-size: design.rem(16)
       color: design.$hex-sv
@@ -236,6 +255,25 @@
           padding-left: design.rem(12)
           font-size: design.rem(13)
           color: design.$hex-sv
+
+    .util
+      display: flex
+      justify-content: center
+      gap: design.rem(27)
+
+      a
+        display: inline-flex
+        align-items: center
+        gap: design.rem(5)
+        border: 1px solid design.$hex-sv
+        border-radius: design.rem(3)
+        padding: design.rem(3) design.rem(7)
+        font-size: design.rem(16)
+        color: design.$hex-dark
+
+        svg
+          width: design.rem(14)
+          height: design.rem(14)
 
   .list
     width: 100%
@@ -321,21 +359,24 @@
 
               .count
                 display: flex
+                align-items: center
                 gap: design.rem(12)
 
                 .rate
+                  width: design.rem(65)
                   color: design.$hex-sv
 
                 .progress
                   background-color: design.$hex-light
                   overflow: hidden
-                  border-radius: design.rem(25)
+                  border-radius: design.rem(16)
                   width: design.rem(120)
-                  height: design.rem(25)
+                  height: design.rem(16)
 
                   div
                     background-color: design.$hex-danger
                     background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)
                     display: block
-                    border-radius: design.rem(25)
-                    height: design.rem(25)
+                    border-radius: design.rem(16)
+                    height: design.rem(16)
+                    min-width: design.rem(16)
