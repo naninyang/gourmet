@@ -14,7 +14,10 @@ export default function Footer() {
             <Anchor href="/usage">이용 안내</Anchor>
           </li>
           <li>
-            <Anchor href="/contact">문의&공지</Anchor>
+            <Anchor href="/announcement">공지사항</Anchor>
+          </li>
+          <li>
+            <Anchor href="/contact">문의하기</Anchor>
           </li>
         </ul>
         <p className={styles.copyright} lang="en">
