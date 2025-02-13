@@ -295,6 +295,7 @@
           .thumbnail
             position: relative
             width: design.rem(170)
+            overflow: hidden
 
             img
               display: block
@@ -308,6 +309,7 @@
               bottom: design.rem(-17)
               font-size: design.rem(53)
               color: design.$hex-white
+              text-shadow: 0 0 design.rem(7) rgba(0, 0, 0, 0.55)
 
               span
                 @include design.screen-reader-only
@@ -345,6 +347,7 @@
 
               dt
                 font-size: design.rem(14)
+                color: design.$hex-sv
 
               dd
                 font-size: design.rem(18)
