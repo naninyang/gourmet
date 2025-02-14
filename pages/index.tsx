@@ -25,7 +25,14 @@ export default function Home({
                 <li key={ingredient.documentId}>
                   <Link href={`/ingredient/${ingredient.documentId}/round`} scroll={false} shallow={true}>
                     <div className={styles.thumbnail}>
-                      <Image src={ingredient.thumbnail_url} width={344} height={193} alt="" unoptimized priority />
+                      <Image
+                        src={`https://cdn.dev1stud.io/gt/${ingredient.documentId}.webp`}
+                        width={344}
+                        height={193}
+                        alt=""
+                        unoptimized
+                        priority
+                      />
                     </div>
                     <div className={styles.summary}>
                       <strong>{ingredient.tournament_title}</strong>

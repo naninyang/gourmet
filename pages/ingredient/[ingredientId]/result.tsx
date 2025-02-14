@@ -90,7 +90,7 @@ export default function Result({ ingredients, ingredientId, count }: Props) {
                           <dt>우승 횟수</dt>
                           <dd>{selectionCount > 0 ? `${selectionCount}회` : '우승 이력 없음'}</dd>
                         </div>
-                        {winRate > 0 && (
+                        {selectionCount > 0 && (
                           <div>
                             <dt>우승 비율</dt>
                             <dd className={styles.count}>

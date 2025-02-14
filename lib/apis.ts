@@ -20,7 +20,6 @@ export async function getIngredients(page: number, pageSize: number) {
   const ingredient: IngredientData[] = ingredientData.map((data: IngredientData) => ({
     documentId: data.documentId,
     tournament_title: data.tournament_title,
-    thumbnail_url: data.thumbnail_url,
     animation_title: data.animation_title,
     info: data.info,
   }));
@@ -44,7 +43,6 @@ export async function getIngredient(documentId: string) {
   const ingredient: IngredientData = {
     documentId: data.documentId,
     tournament_title: data.tournament_title,
-    thumbnail_url: data.thumbnail_url,
     animation_title: data.animation_title,
     info: data.info,
   };
