@@ -50,6 +50,9 @@
         border-radius: design.rem(3)
         padding: design.rem(16) design.rem(38)
 
+        @include design.mq(maxExtraSmall)
+          flex-direction: column
+
         .group
           @include design.row
           align-items: center
@@ -151,16 +154,25 @@
   .match
     display: flex
     position: relative
+    width: 100%
+
+    @include design.mq(maxExtraSmall)
+      flex-direction: column
 
     .vs
       position: absolute
-      top: 0
+      top: 50%
       left: 50%
       z-index: 1
-      transform: translateX(-50%)
+      transform: translate(-50%, -50%)
       width: auto
-      height: 100%
+      height: 50%
       aspect-ratio: 532 / 770
+
+      @include design.mq(minSmall)
+        transform: translateX(-50%)
+        top: 0
+        height: 100%
 
       img
         width: 100%
@@ -168,24 +180,49 @@
         display: block
         filter: invert(53%) sepia(100%) saturate(5000%) hue-rotate(-17deg) brightness(87%)
 
-    button
-      display: block
-      @include design.col
-      background-color: transparent
-      position: relative
-      overflow: hidden
-      width: 50%
-      height: auto
-      aspect-ratio: 1920 / 1080
+    .thumbnail
+      display: flex
+      align-items: center
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+
+      @include design.mq(minSmall)
+        width: 50%
+        height: 100%
+
+      & + .thumbnail
+        @include design.mq(maxExtraSmall)
+          top: 50%
+
+        @include design.mq(minSmall)
+          left: 50%
+          width: 50%
 
       img
         display: block
         width: 100%
         height: auto
 
+    button
+      display: flex
+      background-color: transparent
+      position: relative
+      z-index: 1
+      overflow: hidden
+      width: 100%
+      height: auto
+      aspect-ratio: 1920 / 1080
+
+      @include design.mq(minSmall)
+        @include design.col
+        display: block
+        width: 50%
+        height: 100%
+
       em
         position: absolute
-        bottom: design.rem(32)
         left: 50%
         transform: translateX(-50%)
         background-color: design.$hex-black
@@ -193,9 +230,26 @@
         padding: design.rem(12) design.rem(23)
         color: design.$hex-accent
         font-style: normal
-        font-size: design.rem(27)
+        font-size: design.rem(16)
         font-weight: 700
         line-height: 1
+
+        @include design.mq(maxExtraSmall)
+          top: design.rem(27)
+
+        @include design.mq(minSmall)
+          bottom: design.rem(32)
+          padding: design.rem(12) design.rem(23)
+          font-size: design.rem(27)
+
+      & + button
+        em
+          @include design.mq(maxExtraSmall)
+            top: auto
+            bottom: design.rem(27)
+
+          @include design.mq(maxExtraSmall)
+            bottom: design.rem(32)
 
   .winner
     position: relative
@@ -294,10 +348,15 @@
           box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.06)
           overflow: hidden
 
+          @include design.mq(maxExtraSmall)
+            flex-direction: column
+
           .thumbnail
             position: relative
-            width: design.rem(170)
             overflow: hidden
+
+            @include design.mq(minSmall)
+              width: design.rem(170)
 
             img
               display: block
@@ -318,42 +377,62 @@
 
           .summary
             display: flex
-            justify-content: space-between
-            align-items: center
             gap: design.rem(12)
             @include design.col
             padding: design.rem(23)
             letter-spacing: -.02em
             line-height: 1.25
 
+            @include design.mq(maxExtraSmall)
+              flex-direction: column
+
+            @include design.mq(minSmall)
+              justify-content: space-between
+              align-items: center
+
             strong
               display: flex
-              align-items: flex-end
               font-size: design.rem(18)
               @include design.fw(happiness, 900)
               color: design.$hex-dark
 
               @include design.mq(minSmall)
+                align-items: flex-end
                 height: design.rem(40)
 
             dl
               display: flex
-              justify-content: space-between
-              gap: design.rem(53)
+              gap: design.rem(12)
+
+              @include design.mq(maxExtraSmall)
+                flex-direction: column
+
+              @include design.mq(minSmall)
+                justify-content: space-between
+                gap: design.rem(53)
 
               div
                 display: flex
                 flex-direction: column
-                gap: design.rem(7)
-                text-align: right
+                gap: design.rem(2)
+
+                @include design.mq(minSmall)
+                  text-align: right
+                  gap: design.rem(7)
 
               dt
-                font-size: design.rem(14)
+                font-size: design.rem(12)
                 color: design.$hex-sv
 
+                @include design.mq(minSmall)
+                  font-size: design.rem(14)
+
               dd
-                font-size: design.rem(18)
+                font-size: design.rem(16)
                 font-weight: 700
+
+                @include design.mq(minSmall)
+                  font-size: design.rem(18)
 
               .title
                 @include design.fw(square, 700)
@@ -375,8 +454,11 @@
                   background-color: design.$hex-light
                   overflow: hidden
                   border-radius: design.rem(16)
-                  width: design.rem(120)
+                  width: 100%
                   height: design.rem(16)
+
+                  @include design.mq(minSmall)
+                    width: design.rem(120)
 
                   div
                     background-color: design.$hex-danger

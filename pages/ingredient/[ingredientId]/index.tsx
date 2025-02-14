@@ -126,8 +126,12 @@ export default function IngredientPage({ ingredient, ingredientId }: Props) {
               <Image src="/vs.webp" alt="" width={532} height={770} />
             </div>
             {selectedInfo.slice(0, 2).map((item) => (
-              <button key={item.id} type="button" onClick={() => handleSelection(item)}>
+              <div className={styles.thumbnail} key={item.id}>
                 <Image src={item.thumbnail} alt="" width={960} height={540} unoptimized priority />
+              </div>
+            ))}
+            {selectedInfo.slice(0, 2).map((item) => (
+              <button key={item.id} type="button" onClick={() => handleSelection(item)}>
                 <em>{item.name}</em>
               </button>
             ))}
