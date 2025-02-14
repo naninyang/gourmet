@@ -353,9 +353,9 @@
 
           .thumbnail
             position: relative
-            overflow: hidden
 
             @include design.mq(minSmall)
+              overflow: hidden
               width: design.rem(170)
 
             img
@@ -366,11 +366,17 @@
 
             strong
               position: absolute
-              right: design.rem(-7)
-              bottom: design.rem(-17)
               font-size: design.rem(53)
               color: design.$hex-white
               text-shadow: 0 0 design.rem(7) rgba(0, 0, 0, 0.55)
+
+              @include design.mq(maxExtraSmall)
+                left: design.rem(22)
+                bottom: design.rem(-22)
+
+              @include design.mq(minSmall)
+                right: design.rem(-7)
+                bottom: design.rem(-17)
 
               span
                 @include design.screen-reader-only
