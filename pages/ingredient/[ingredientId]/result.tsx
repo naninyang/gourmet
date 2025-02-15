@@ -44,7 +44,7 @@ export default function Result({ ingredients, ingredientId, count }: Props) {
           <h1>{ingredients.tournament_title}</h1>
           <h2>
             <strong>{ingredients.animation_title}</strong>
-            최종 선택된 음식들 순위
+            최종선택 요리순위
           </h2>
           <div className={styles.util}>
             <Anchor href="/">

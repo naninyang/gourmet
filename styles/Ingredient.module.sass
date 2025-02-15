@@ -150,6 +150,7 @@
     display: flex
     flex-grow: 1
     background-color: design.$hex-black
+    max-height: calc(100vh - design.rem(393))
 
   .match
     display: flex
@@ -258,8 +259,9 @@
     img
       display: block
       width: 100%
-      height: auto
-      aspect-ratio: 1920 / 1080
+      height: 100%
+      object-fit: contain
+      object-position: 50% bottom
 
     em
       position: absolute
