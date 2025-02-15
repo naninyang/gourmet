@@ -95,7 +95,7 @@ export default function IngredientPage({ ingredient, ingredientId }: Props) {
         </h2>
         <div className={styles.util}>
           {isFinal ? (
-            <Anchor href="/">
+            <Anchor href={`/ingredient/${ingredientId}/result`}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M19.5 4C18.119 4 17 5.119 17 6.5V17.5C17 18.881 18.119 20 19.5 20C20.881 20 22 18.881 22 17.5V6.5C22 5.119 20.881 4 19.5 4ZM12.5 8C11.119 8 10 9.119 10 10.5V17.5C10 18.881 11.119 20 12.5 20C13.881 20 15 18.881 15 17.5V10.5C15 9.119 13.881 8 12.5 8ZM5.5 12C4.119 12 3 13.119 3 14.5V17.5C3 18.881 4.119 20 5.5 20C6.881 20 8 18.881 8 17.5V14.5C8 13.119 6.881 12 5.5 12Z"
