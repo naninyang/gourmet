@@ -150,7 +150,6 @@
     display: flex
     flex-grow: 1
     background-color: design.$hex-black
-    max-height: calc(100vh - design.rem(393))
 
   .match
     display: flex
@@ -233,7 +232,7 @@
         font-style: normal
         font-size: design.rem(16)
         font-weight: 700
-        line-height: 1
+        line-height: 1.25
 
         @include design.mq(maxExtraSmall)
           top: design.rem(27)
@@ -249,7 +248,7 @@
             top: auto
             bottom: design.rem(27)
 
-          @include design.mq(maxExtraSmall)
+          @include design.mq(minSmall)
             bottom: design.rem(32)
 
   .winner
