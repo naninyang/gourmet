@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import { Noto_Sans_KR } from 'next/font/google';
 import localFont from 'next/font/local';
-import Script from 'next/script';
-import { useRouter } from 'next/router';
-import { GA_TRACKING_ID, pageview } from '@/lib/gtag';
+// import Script from 'next/script';
+// import { useRouter } from 'next/router';
+// import { GA_TRACKING_ID, pageview } from '@/lib/gtag';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import '@/styles/globals.sass';
@@ -27,18 +27,18 @@ const Square = localFont({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-  useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      pageview(url);
-    };
-    router.events.on('routeChangeComplete', handleRouteChange);
-    router.events.on('hashChangeComplete', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-      router.events.off('hashChangeComplete', handleRouteChange);
-    };
-  }, [router.events]);
+  // const router = useRouter();
+  // useEffect(() => {
+  //   const handleRouteChange = (url: string) => {
+  //     pageview(url);
+  //   };
+  //   router.events.on('routeChangeComplete', handleRouteChange);
+  //   router.events.on('hashChangeComplete', handleRouteChange);
+  //   return () => {
+  //     router.events.off('routeChangeComplete', handleRouteChange);
+  //     router.events.off('hashChangeComplete', handleRouteChange);
+  //   };
+  // }, [router.events]);
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       const registInit = async () => {
@@ -57,7 +57,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Script id="google-analytics">
+      {/* <Script id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -66,7 +66,7 @@ export default function App({ Component, pageProps }: AppProps) {
             page_path: window.location.pathname,
           });
         `}
-      </Script>
+      </Script> */}
       <style jsx global>
         {`
           body,
