@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { IngredientData } from '@/types';
 import Seo from '@/components/Seo';
 import styles from '@/styles/Home.module.sass';
+import Anchor from '@/components/Anchor';
 
 export default function Home({
   data,
@@ -20,7 +21,15 @@ export default function Home({
       <Seo pageImg={`https://gourmet.dev1stud.io/og?ts=${timestamp}`} />
       <div className={`container ${styles.container}`}>
         {error ? (
-          <p>알 수 없는 오류가 발생했습니다.</p>
+          <div className={styles.error}>
+            <p>알 수 없는 오류가 발생했습니다.</p>
+            <p>
+              새로고침을 해도 해결되지 않는다면
+              <span>
+                <Anchor href="/contact">문의</Anchor>주세요.
+              </span>
+            </p>
+          </div>
         ) : (
           <div className={styles.list}>
             <ul>
