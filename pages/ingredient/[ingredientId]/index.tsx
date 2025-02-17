@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { InfoItem, IngredientData } from '@/types';
 import Anchor from '@/components/Anchor';
+import Seo, { originTitle } from '@/components/Seo';
 import styles from '@/styles/Ingredient.module.sass';
 
 interface Props {
@@ -49,7 +50,7 @@ export default function IngredientPage({ ingredient, ingredientId }: Props) {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log('Count update result:', data);
+          console.log(data);
           setUpdatedCount(true);
         })
         .catch((err) => console.error('Error updating count:', err));
@@ -78,8 +79,16 @@ export default function IngredientPage({ ingredient, ingredientId }: Props) {
     }
   };
 
+  const timestamp = Date.now();
+
   return (
     <main className={styles.main}>
+      <Seo
+        pageTitles={`${ingredient.tournament_title} (${ingredient.animation_title}) - ${originTitle}`}
+        pageTitle={`${ingredient.tournament_title} by ${ingredient.animation_title}`}
+        pageDescription={`${ingredient.animation_title}에 나온 요리/음식 이상형 월드컵을 즐겨보세요`}
+        pageImg={`https://cdn.dev1stud.io/gt/${ingredientId}.webp?ts=${timestamp}`}
+      />
       <header>
         <h1>{ingredient.tournament_title}</h1>
         <h2>

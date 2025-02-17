@@ -2,6 +2,7 @@ import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IngredientData } from '@/types';
+import Seo from '@/components/Seo';
 import styles from '@/styles/Home.module.sass';
 
 export default function Home({
@@ -13,8 +14,10 @@ export default function Home({
   error: string;
   // currentPage: number;
 }) {
+  const timestamp = Date.now();
   return (
     <main className={styles.main}>
+      <Seo pageImg={`https://gourmet.dev1stud.io/og?ts=${timestamp}`} />
       <div className={`container ${styles.container}`}>
         {error ? (
           <p>알 수 없는 오류가 발생했습니다.</p>

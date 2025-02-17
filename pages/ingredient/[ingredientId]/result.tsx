@@ -5,6 +5,7 @@ import { Emblema_One } from 'next/font/google';
 import { useMediaQuery } from 'react-responsive';
 import { IngredientData } from '@/types';
 import Anchor from '@/components/Anchor';
+import Seo, { originTitle } from '@/components/Seo';
 import styles from '@/styles/Ingredient.module.sass';
 
 const Emblema = Emblema_One({
@@ -45,6 +46,8 @@ export default function Result({ ingredients, ingredientId, count }: Props) {
     return countB - countA;
   });
 
+  const timestamp = Date.now();
+
   return (
     <main className={styles.result}>
       <style jsx>
@@ -55,6 +58,12 @@ export default function Result({ ingredients, ingredientId, count }: Props) {
           }
         `}
       </style>
+      <Seo
+        pageTitles={`${ingredients.tournament_title} (${ingredients.animation_title}) - ${originTitle}`}
+        pageTitle={`${ingredients.tournament_title} by ${ingredients.animation_title}`}
+        pageDescription={`${ingredients.animation_title}에 나온 요리/음식 이상형 월드컵을 즐겨보세요`}
+        pageImg={`https://cdn.dev1stud.io/gt/${ingredientId}.webp?ts=${timestamp}`}
+      />
       <div className={`container ${styles.container}`}>
         <header>
           <h1>{ingredients.tournament_title}</h1>

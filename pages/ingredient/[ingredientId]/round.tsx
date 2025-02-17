@@ -3,8 +3,9 @@ import { useRouter } from 'next/router';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { IngredientData } from '@/types';
 import styles from '@/styles/Ingredient.module.sass';
+import Seo, { originTitle } from '@/components/Seo';
 
-export default function Round({ ingredient }: { ingredient: IngredientData }) {
+export default function Round({ ingredient, ingredientId }: { ingredient: IngredientData; ingredientId: string }) {
   const router = useRouter();
   const infoLength = ingredient?.info?.length || 0;
 
@@ -21,6 +22,8 @@ export default function Round({ ingredient }: { ingredient: IngredientData }) {
     router.push(`/ingredient/${ingredient.documentId}/?r=${selectedRound}`);
   };
 
+  const timestamp = Date.now();
+
   return (
     <main className={styles.round}>
       {!ingredient ? (
@@ -29,6 +32,12 @@ export default function Round({ ingredient }: { ingredient: IngredientData }) {
         </p>
       ) : (
         <div className={`container ${styles.content}`}>
+          <Seo
+            pageTitles={`${ingredient.tournament_title} (${ingredient.animation_title}) - ${originTitle}`}
+            pageTitle={`${ingredient.tournament_title} by ${ingredient.animation_title}`}
+            pageDescription={`${ingredient.animation_title}에 나온 요리/음식 이상형 월드컵을 즐겨보세요`}
+            pageImg={`https://cdn.dev1stud.io/gt/${ingredientId}.webp?ts=${timestamp}`}
+          />
           <header>
             <h1>{ingredient.tournament_title}</h1>
             <h2>
@@ -90,6 +99,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       ingredient,
+      ingredientId,
     },
     revalidate: 1,
   };
