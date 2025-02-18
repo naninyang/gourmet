@@ -40,7 +40,7 @@ export default function Home({
                       <Image
                         src={`https://cdn.dev1stud.io/gt/${ingredient.documentId}.webp`}
                         width={344}
-                        height={193}
+                        height={169}
                         alt=""
                         unoptimized
                         priority
